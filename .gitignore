@@ -1,0 +1,6 @@
+node_modules
+dist
+coverage
+logs
+.temp
+PRD.md
