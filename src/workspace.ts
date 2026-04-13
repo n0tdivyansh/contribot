@@ -18,7 +18,7 @@ export async function createWorkspace(
   strategy: string,
   issueNumber: number
 ): Promise<WorkspaceHandle> {
-  const tempDir = await mkdtemp(path.join(os.tmpdir(), "aica-"));
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "contribot-"));
   const repoDir = path.join(tempDir, repo.replace("/", "__"));
   const cloneResult = await runner.run("gh", ["repo", "clone", repo, repoDir, "--", "--depth", "1"]);
   assertCommandSucceeded(cloneResult, `Failed to clone repository ${repo}.`);

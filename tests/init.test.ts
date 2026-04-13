@@ -8,8 +8,8 @@ import { initConfig } from "../src/init.js";
 
 describe("initConfig", () => {
   it("creates a starter config file", async () => {
-    const dir = await mkdtemp(path.join(os.tmpdir(), "aica-init-"));
-    const filePath = path.join(dir, "aica.config.json");
+    const dir = await mkdtemp(path.join(os.tmpdir(), "contribot-init-"));
+    const filePath = path.join(dir, "contribot.config.json");
 
     const writtenPath = await initConfig({ configPath: filePath, force: false });
     const contents = JSON.parse(await readFile(filePath, "utf8")) as { repos: string[]; safeMode: boolean };
@@ -20,8 +20,8 @@ describe("initConfig", () => {
   });
 
   it("refuses to overwrite without force", async () => {
-    const dir = await mkdtemp(path.join(os.tmpdir(), "aica-init-"));
-    const filePath = path.join(dir, "aica.config.json");
+    const dir = await mkdtemp(path.join(os.tmpdir(), "contribot-init-"));
+    const filePath = path.join(dir, "contribot.config.json");
 
     await initConfig({ configPath: filePath, force: false });
     await expect(initConfig({ configPath: filePath, force: false })).rejects.toThrow(/--force/);

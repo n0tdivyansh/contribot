@@ -22,7 +22,7 @@ export async function publishPullRequest(
   assertCommandSucceeded(pushResult, "Failed to push branch.");
 
   const body = buildPrBody(issue, strategy, validation);
-  const bodyPath = path.join(repoDir, ".aica-pr-body.md");
+  const bodyPath = path.join(repoDir, ".contribot-pr-body.md");
   await writeFile(bodyPath, body, "utf8");
 
   const prResult = await runner.run(

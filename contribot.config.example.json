@@ -1,11 +1,11 @@
 {
-  "repos": ["owner/example-repo"],
+  "repos": ["owner/repo"],
   "labels": ["bug", "good first issue"],
   "maxPRsPerRun": 1,
   "safeMode": true,
   "maxDiffLines": 200,
   "maxFilesChanged": 10,
-  "branchPrefix": "aica",
+  "branchPrefix": "contribot",
   "commitMessageTemplate": "chore: apply safe automated fix",
   "logLevel": "info",
   "allowNoTests": []

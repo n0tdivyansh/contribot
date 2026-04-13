@@ -1,18 +1,18 @@
 {
-  "name": "ai-github-contributor-agent",
+  "name": "contribot",
   "version": "0.1.0",
-  "description": "Safe-only MVP CLI for deterministic GitHub contributions.",
+  "description": "A safe, configurable CLI for scanning codebases, applying constrained fixes, validating them, and opening pull requests.",
   "type": "module",
   "main": "./dist/cli.js",
   "bin": {
-    "ai-contributor": "./dist/cli.js"
+    "contribot": "./dist/cli.js"
   },
   "files": [
     "dist",
     "README.md",
     "LICENSE",
     "CHANGELOG.md",
-    "aica.config.example.json"
+    "contribot.config.example.json"
   ],
   "engines": {
     "node": ">=20"
@@ -35,7 +35,8 @@
     "oss",
     "pull-request",
     "lint",
-    "formatter"
+    "formatter",
+    "codebase"
   ],
   "license": "MIT",
   "dependencies": {

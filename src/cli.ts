@@ -11,15 +11,15 @@ import { assertPreflight, runPreflightChecks } from "./preflight.js";
 const program = new Command();
 
 program
-  .name("ai-contributor")
-  .description("Safe-only GitHub contributor agent MVP")
+  .name("contribot")
+  .description("Contribot CLI")
   .option("-c, --config <path>", "Path to config file")
   .option("--publish", "Push branch and create a pull request")
   .option("--debug", "Keep temporary workspaces on disk for inspection");
 
 program
   .command("init")
-  .description("Create a starter AICA config file")
+  .description("Create a starter Contribot config file")
   .option("-c, --config <path>", "Path to write the config file")
   .option("--force", "Overwrite an existing config file")
   .action(async (commandOptions: { config?: string; force?: boolean }) => {
@@ -94,25 +94,44 @@ program
     process.exitCode = result.status === "failed" ? 1 : 0;
   });
 
-program.command("run").description("Run the safe contribution loop across configured repositories").action(async () => {
-  const options = program.opts<{ config?: string; publish?: boolean; debug?: boolean }>();
-  const config = await loadConfig(options.config);
-  const runner = new ShellCommandRunner();
-  const checks = await runPreflightChecks(runner, {
-    requireGit: true,
-    requireGh: true,
-    requireGitHubAuth: true,
-    requirePython: true,
+program
+  .command("run")
+  .description("Run the safe contribution loop across configured repositories")
+  .action(async () => {
+    const options = program.opts<{ config?: string; publish?: boolean; debug?: boolean }>();
+    const config = await loadConfig(options.config);
+    const runner = new ShellCommandRunner();
+    const checks = await runPreflightChecks(runner, {
+      requireGit: true,
+      requireGh: true,
+      requireGitHubAuth: true,
+      requirePython: true,
+    });
+    assertPreflight(checks);
+    const { logPath, results } = await runBatch(runner, config, {
+      configPath: options.config,
+      publish: Boolean(options.publish),
+      debug: Boolean(options.debug),
+    });
+    console.log(JSON.stringify({ results, logPath }, null, 2));
+    process.exitCode = results.some((result) => result.status === "failed") ? 1 : 0;
   });
-  assertPreflight(checks);
-  const { logPath, results } = await runBatch(runner, config, {
-    configPath: options.config,
-    publish: Boolean(options.publish),
-    debug: Boolean(options.debug),
+
+program
+  .command("auto")
+  .description("Placeholder for future autonomous mode")
+  .action(() => {
+    console.log(
+      JSON.stringify(
+        {
+          status: "not-implemented",
+          message: "Autonomous mode is planned but not implemented yet.",
+        },
+        null,
+        2
+      )
+    );
   });
-  console.log(JSON.stringify({ results, logPath }, null, 2));
-  process.exitCode = results.some((result) => result.status === "failed") ? 1 : 0;
-});
 
 program.parseAsync(process.argv).catch((error: unknown) => {
   const message = error instanceof Error ? error.message : "Unexpected error";

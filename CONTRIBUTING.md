@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to AICA.
+Thanks for contributing to Contribot.
 
 ## Local Setup
 

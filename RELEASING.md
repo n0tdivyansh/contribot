@@ -1,4 +1,4 @@
-# Releasing AICA
+# Releasing Contribot
 
 This document defines the release flow for maintainers.
 

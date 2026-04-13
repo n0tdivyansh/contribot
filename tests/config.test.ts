@@ -8,8 +8,8 @@ import { loadConfig, resolveRepos } from "../src/config.js";
 
 describe("config", () => {
   it("merges defaults with user config", async () => {
-    const dir = await mkdtemp(path.join(os.tmpdir(), "aica-config-"));
-    const filePath = path.join(dir, "aica.config.json");
+    const dir = await mkdtemp(path.join(os.tmpdir(), "contribot-config-"));
+    const filePath = path.join(dir, "contribot.config.json");
     await writeFile(
       filePath,
       JSON.stringify({
@@ -27,8 +27,8 @@ describe("config", () => {
   });
 
   it("rejects disabled safe mode", async () => {
-    const dir = await mkdtemp(path.join(os.tmpdir(), "aica-config-"));
-    const filePath = path.join(dir, "aica.config.json");
+    const dir = await mkdtemp(path.join(os.tmpdir(), "contribot-config-"));
+    const filePath = path.join(dir, "contribot.config.json");
     await writeFile(
       filePath,
       JSON.stringify({

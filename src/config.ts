@@ -10,14 +10,14 @@ export const defaultConfig: AicaConfig = {
   safeMode: true,
   maxDiffLines: 200,
   maxFilesChanged: 10,
-  branchPrefix: "aica",
+  branchPrefix: "contribot",
   commitMessageTemplate: "chore: apply safe automated fix",
   logLevel: "info",
   allowNoTests: [],
 };
 
 export async function loadConfig(configPath?: string): Promise<AicaConfig> {
-  const resolvedPath = path.resolve(configPath ?? "aica.config.json");
+  const resolvedPath = path.resolve(configPath ?? "contribot.config.json");
   const raw = await readFile(resolvedPath, "utf8");
   const parsed = JSON.parse(raw) as Partial<AicaConfig>;
   const config = {
@@ -81,7 +81,7 @@ export function resolveRepos(config: AicaConfig, explicitRepo?: string): string[
 
 export async function configExists(configPath?: string): Promise<boolean> {
   try {
-    await access(path.resolve(configPath ?? "aica.config.json"));
+    await access(path.resolve(configPath ?? "contribot.config.json"));
     return true;
   } catch {
     return false;

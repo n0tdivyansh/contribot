@@ -6,7 +6,7 @@ If you discover a vulnerability or a safety issue that could cause unintended re
 
 ## Scope
 
-Security for AICA includes:
+Security for Contribot includes:
 
 - Command execution boundaries
 - Authentication handling

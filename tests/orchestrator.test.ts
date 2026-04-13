@@ -23,7 +23,7 @@ const config: AicaConfig = {
   safeMode: true,
   maxDiffLines: 50,
   maxFilesChanged: 5,
-  branchPrefix: "aica",
+  branchPrefix: "contribot",
   commitMessageTemplate: "chore: automated safe fix",
   logLevel: "error",
   allowNoTests: [],
