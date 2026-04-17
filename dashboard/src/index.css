@@ -345,7 +345,6 @@ button {
   transform: translateX(2px);
 }
 
-.run-card-left {}
 .run-card-top {
   display: flex;
   align-items: center;
