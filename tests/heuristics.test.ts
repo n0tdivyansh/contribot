@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { isAutomatableIssue, scoreIssue, selectStrategy } from "../src/heuristics.js";
-import type { RepoIssue, ToolchainInfo } from "../src/types.js";
+import { isAutomatableIssue, scoreIssue, selectStrategy } from "../src/core/heuristics.js";
+import type { RepoIssue, ToolchainInfo } from "../src/types/types.js";
 
 const baseIssue: RepoIssue = {
   number: 12,

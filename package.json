@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "A safe, configurable CLI for scanning codebases, applying constrained fixes, validating them, and opening pull requests.",
   "type": "module",
-  "main": "./dist/cli.js",
+  "main": "./dist/src/cli/index.js",
   "bin": {
-    "contribot": "./dist/cli.js"
+    "contribot": "./dist/src/cli/index.js"
   },
   "files": [
     "dist",
@@ -20,7 +20,7 @@
   "scripts": {
     "clean": "node -e \"import('node:fs').then(fs => fs.rmSync('dist', { recursive: true, force: true }))\"",
     "build": "npm run clean && tsc -p tsconfig.build.json",
-    "dev": "node --loader ts-node/esm src/cli.ts",
+    "dev": "node --loader ts-node/esm src/cli/index.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "check": "npm run build && npm test",

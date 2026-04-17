@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { collectDiffStats } from "../src/validator.js";
-import type { CommandResult, CommandRunner } from "../src/types.js";
+import { collectDiffStats } from "../src/core/validator.js";
+import type { CommandResult, CommandRunner } from "../src/types/types.js";
 
 class FakeRunner implements CommandRunner {
   constructor(private readonly responses: Record<string, CommandResult>) {}

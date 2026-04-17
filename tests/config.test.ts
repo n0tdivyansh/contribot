@@ -4,7 +4,7 @@ import path from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { loadConfig, resolveRepos } from "../src/config.js";
+import { loadConfig, resolveRepos } from "../src/utils/config.js";
 
 describe("config", () => {
   it("merges defaults with user config", async () => {

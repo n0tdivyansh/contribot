@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { buildPrBody } from "../src/publisher.js";
-import type { RepoIssue, ValidationResult } from "../src/types.js";
+import { buildPrBody } from "../src/integrations/github/publisher.js";
+import type { RepoIssue, ValidationResult } from "../src/types/types.js";
 
 describe("buildPrBody", () => {
   it("renders issue and validation details", () => {

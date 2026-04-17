@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { runScan } from "../src/orchestrator.js";
-import type { AicaConfig, CommandResult, CommandRunner } from "../src/types.js";
+import { runScan } from "../src/core/orchestrator.js";
+import type { AicaConfig, CommandResult, CommandRunner } from "../src/types/types.js";
 
 class MockRunner implements CommandRunner {
   constructor(private readonly handlers: Record<string, CommandResult>) {}

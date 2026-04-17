@@ -1,8 +1,8 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-import { configExists, defaultConfig } from "./config.js";
-import type { InitOptions } from "./types.js";
+import { configExists, defaultConfig } from "./utils/config.js";
+import type { InitOptions } from "./types/types.js";
 
 export async function initConfig(options: InitOptions): Promise<string> {
   const configPath = path.resolve(options.configPath ?? "contribot.config.json");

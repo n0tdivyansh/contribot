@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { assertPreflight, runPreflightChecks } from "../src/preflight.js";
-import type { CommandResult, CommandRunner } from "../src/types.js";
+import { assertPreflight, runPreflightChecks } from "../src/core/preflight.js";
+import type { CommandResult, CommandRunner } from "../src/types/types.js";
 
 class FakeRunner implements CommandRunner {
   constructor(
