@@ -20,12 +20,29 @@ Contribot is a safe, configurable CLI for scanning repositories, applying constr
 
 ## Local Usage
 
+### CLI
+
 ```bash
 npm install
 npm run build
-node dist/cli.js --help
+node dist/src/cli/index.js --help
 ```
 
+### Dashboard
+
+Contribot comes with a real-time web dashboard that reads CLI logs and tracks metrics. Run both servers in separate terminals:
+
+```bash
+# Terminal 1: Start the API server (Port 3001)
+cd server
+npm install
+npm run dev
+
+# Terminal 2: Start the frontend (Port 5173)
+cd dashboard
+npm install
+npm run dev
+```
 ## Config
 
 Start from [`contribot.config.example.json`](./contribot.config.example.json) or create one with `contribot init`.
